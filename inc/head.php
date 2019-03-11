@@ -42,11 +42,12 @@
               Cart
             </a>
           </li>
+          <li><a href="/logout.php">Déconnexion</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
   <div class="container-fluid text-right">
-    <strong>Hello Wilder !</strong>
+    <strong>Hello <?php echo($_SESSION['nom'] ?? '')?></strong>
   </div>
 </header>
