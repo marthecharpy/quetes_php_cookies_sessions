@@ -1,7 +1,9 @@
 <?php 
 session_start();
-if (!($_SESSION['nom'])){
+
+if (!isset($_SESSION['nom'])){
   header('Location: login.php'); 
+  exit();
 }
 require 'inc/head.php';
 ?>

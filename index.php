@@ -1,9 +1,13 @@
 <?php
 session_start();
-$name = $_POST['loginname'] ?? $_SESSION['nom'] ?? "";
-$_SESSION['nom'] = $name;
-if (!($_SESSION['nom'])){
+
+if (isset($_POST['loginname']) && !empty($_POST['loginname'])) {
+  $_SESSION['nom'] = $_POST['loginname'];
+}
+
+if (!isset($_SESSION['nom'])){
   header('Location: login.php'); 
+  exit();
 }
 $cookieNuts = $_POST['nuts'] ?? $_SESSION['nuts'] ?? "";
 $cookieChips = $_POST['chips'] ?? $_SESSION['chips'] ?? "";
@@ -18,7 +22,7 @@ require 'inc/head.php';
 
 <section class="cookies container-fluid">
   <div class="row">
-    <form role="form" action="#" method="POST">
+    <form role="form" action="#" method="GET">
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <figure class="thumbnail text-center">
           <img src="assets/img/product-46.jpg" alt="cookies choclate chips" class="img-responsive">
@@ -31,7 +35,7 @@ require 'inc/head.php';
         </figure>
       </div>
     </form>
-    <form role="form" action="#" method="POST">
+    <form role="form" action="#" method="GET">
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <figure class="thumbnail text-center">
           <img src="assets/img/product-36.jpg" alt="cookies choclate chips" class="img-responsive">
@@ -44,7 +48,7 @@ require 'inc/head.php';
         </figure>
       </div>
     </form>
-    <form role="form" action="#" method="POST">
+    <form role="form" action="#" method="GET">
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <figure class="thumbnail text-center">
           <img src="assets/img/product-58.jpg" alt="cookies choclate chips" class="img-responsive">
@@ -57,7 +61,7 @@ require 'inc/head.php';
         </figure>
       </div>
     </form>
-    <form role="form" action="#" method="POST">
+    <form role="form" action="#" method="GET">
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <figure class="thumbnail text-center">
           <img src="assets/img/product-32.jpg" alt="cookies choclate chips" class="img-responsive">
